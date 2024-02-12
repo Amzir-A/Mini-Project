@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RPG Game")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91b5f62ea4f2ff5d179e506db6a59dbc2cbd6388")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc36e2b2ec4f88cd34b688baef77f5bcefc4cf6c")]
 [assembly: System.Reflection.AssemblyProductAttribute("RPG Game")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RPG Game")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

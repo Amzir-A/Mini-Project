@@ -2,6 +2,8 @@
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World!");
+        List<string> names = ["John", "Jane", "Jack", "Jill"];
+        Console.WriteLine(names[0]);
+        Console.ReadLine();
     }
 }

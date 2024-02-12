@@ -1,0 +1,15 @@
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\bin\Debug\net8.0\RPG Game.exe
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\bin\Debug\net8.0\RPG Game.deps.json
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\bin\Debug\net8.0\RPG Game.runtimeconfig.json
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\bin\Debug\net8.0\RPG Game.dll
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\bin\Debug\net8.0\RPG Game.pdb
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\obj\Debug\net8.0\RPG Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\obj\Debug\net8.0\RPG Game.AssemblyInfoInputs.cache
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\obj\Debug\net8.0\RPG Game.AssemblyInfo.cs
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\obj\Debug\net8.0\RPG Game.csproj.CoreCompileInputs.cache
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\obj\Debug\net8.0\RPG Game.sourcelink.json
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\obj\Debug\net8.0\RPG Game.dll
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\obj\Debug\net8.0\refint\RPG Game.dll
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\obj\Debug\net8.0\RPG Game.pdb
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\obj\Debug\net8.0\RPG Game.genruntimeconfig.cache
+C:\Users\Amzir\Documents\GitHub\Mini-Project\RPG Game\obj\Debug\net8.0\ref\RPG Game.dll
