@@ -1,0 +1,7 @@
+class Monster
+{
+	public Monster()
+	{
+
+	}
+}

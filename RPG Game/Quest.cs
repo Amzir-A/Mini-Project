@@ -1,0 +1,7 @@
+class Quest
+{
+	public Quest()
+	{
+
+	}
+}
