@@ -1,3 +1,4 @@
 {
-    "dotnet.defaultSolution": "RPG Game.sln"
+    "dotnet.defaultSolution": "RPG Game.sln",
+    "csharp.debug.console": "externalTerminal"
 }
