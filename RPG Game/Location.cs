@@ -5,19 +5,21 @@ public class Location
     public string Description;
     public Quest? QuestAvailableHere;
     public Monster? MonsterLivingHere;
+    public int? AmountOfMonsters;
 
     public Location? LocationToNorth;
     public Location? LocationToEast;
     public Location? LocationToSouth;
     public Location? LocationToWest;
 
-    public Location(int id, string name, string description, Quest? questAvailableHere = null, Monster? monsterLivingHere = null)
+    public Location(int id, string name, string description, Quest? questAvailableHere = null, Monster? monsterLivingHere = null, int? amountOfMonsters = null)
     {
         ID = id;
         Name = name;
         Description = description;
         QuestAvailableHere = questAvailableHere;
         MonsterLivingHere = monsterLivingHere;
+        AmountOfMonsters = amountOfMonsters;
     }
 
     public string Compass()
@@ -37,12 +39,12 @@ public class Location
         }
         if (LocationToEast != null)
         {
-            s += "---C";
+            s += "---E";
         }
         s += "\n";
         if (LocationToSouth != null)
         {
-            s += "    C\n    S\n";
+            s += "    |\n    S\n";
         }
         return s;
     }

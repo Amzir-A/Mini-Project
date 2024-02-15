@@ -1,12 +1,13 @@
-public class Quest
+public class Quest(int id, string name, string description)
 {
-	public int ID { get; set; }
-	public string Description { get; set; }
-	public string Name { get; set; }
-	public Quest(int id, string name, string description)
+    public int ID { get; set; } = id;
+    public string Description { get; set; } = description;
+    public string Name { get; set; } = name;
+    public bool IsCompleted = false;
+    public bool RewardCollected = false;
+
+	public void SetCompleted()
 	{
-		ID = id;
-		Name = name;
-		Description = description;
+		IsCompleted = true;
 	}
 }

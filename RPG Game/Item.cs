@@ -1,13 +1,6 @@
-public class Item
+public class Item(int id, string name, string description)
 {
-    public int ID { get; set; }
-    public string Name { get; set; }
-    public int Price { get; set; }
-
-    public Item(int id, string name, int price)
-    {
-        ID = id;
-        Name = name;
-        Price = price;
-    }
+    public int ID { get; set; } = id;
+    public string Name { get; set; } = name;
+    public string Description { get; set; } = description;
 }

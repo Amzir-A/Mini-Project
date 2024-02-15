@@ -5,6 +5,7 @@ public static class World
     public static readonly List<Monster> Monsters = new List<Monster>();
     public static readonly List<Quest> Quests = new List<Quest>();
     public static readonly List<Location> Locations = new List<Location>();
+    public static readonly List<Item> Items = new List<Item>();
     public static readonly Random RandomGenerator = new Random();
 
     public const int WEAPON_ID_RUSTY_SWORD = 1;
@@ -27,6 +28,12 @@ public static class World
     public const int LOCATION_ID_FARM_FIELD = 7;
     public const int LOCATION_ID_BRIDGE = 8;
     public const int LOCATION_ID_SPIDER_FIELD = 9;
+
+    public const int ITEM_ID_RAT_TAIL = 1;
+    public const int ITEM_ID_PIECE_OF_SNAKE_SKIN = 2;
+    public const int ITEM_ID_SPIDER_FANG = 3;
+    public const int ITEM_ID_SPIDER_SILK = 4;
+    public const int ITEM_ID_HEALING_POTION = 5;
 
     static World()
     {
@@ -98,21 +105,23 @@ public static class World
         Location alchemistHut = new Location(LOCATION_ID_ALCHEMIST_HUT, "Alchemist's hut", "There are many strange plants on the shelves.", null, null);
         alchemistHut.QuestAvailableHere = QuestByID(QUEST_ID_CLEAR_ALCHEMIST_GARDEN);
 
-        Location alchemistsGarden = new Location(LOCATION_ID_ALCHEMISTS_GARDEN, "Alchemist's garden", "Many plants are growing here.", null, null);
+        Location alchemistsGarden = new Location(LOCATION_ID_ALCHEMISTS_GARDEN, "Alchemist's garden", "Many plants are growing here.", null, null, 3);
         alchemistsGarden.MonsterLivingHere = MonsterByID(MONSTER_ID_RAT);
 
         Location farmhouse = new Location(LOCATION_ID_FARMHOUSE, "Farmhouse", "There is a small farmhouse, with a farmer in front.", null, null);
         farmhouse.QuestAvailableHere = QuestByID(QUEST_ID_CLEAR_FARMERS_FIELD);
 
-        Location farmersField = new Location(LOCATION_ID_FARM_FIELD, "Farmer's field", "You see rows of vegetables growing here.", null, null);
-        farmersField.MonsterLivingHere = MonsterByID(MONSTER_ID_SNAKE);
+        Location farmersField = new Location(LOCATION_ID_FARM_FIELD, "Farmer's field", "You see rows of vegetables growing here.", null, null, 3)
+        {
+            MonsterLivingHere = MonsterByID(MONSTER_ID_SNAKE)
+        };
 
         Location guardPost = new Location(LOCATION_ID_GUARD_POST, "Guard post", "There is a large, tough-looking guard here.", null, null);
 
         Location bridge = new Location(LOCATION_ID_BRIDGE, "Bridge", "A stone bridge crosses a wide river.", null, null);
         bridge.QuestAvailableHere = QuestByID(QUEST_ID_COLLECT_SPIDER_SILK);
 
-        Location spiderField = new Location(LOCATION_ID_SPIDER_FIELD, "Forest", "You see spider webs covering covering the trees in this forest.", null, null);
+        Location spiderField = new Location(LOCATION_ID_SPIDER_FIELD, "Forest", "You see spider webs covering covering the trees in this forest.", null, null, 3);
         spiderField.MonsterLivingHere = MonsterByID(MONSTER_ID_GIANT_SPIDER);
 
         // Link the locations together
@@ -151,6 +160,15 @@ public static class World
         Locations.Add(farmersField);
         Locations.Add(bridge);
         Locations.Add(spiderField);
+    }
+
+    public static void PopulateItems()
+    {
+        Items.Add(new Item(ITEM_ID_RAT_TAIL, "Rat tail", "This can be used for crafting"));
+        Items.Add(new Item(ITEM_ID_PIECE_OF_SNAKE_SKIN, "Piece of snake skin", "This can be used for crafting"));
+        Items.Add(new Item(ITEM_ID_SPIDER_FANG, "Spider fang", "This can be used for crafting"));
+        Items.Add(new Item(ITEM_ID_SPIDER_SILK, "Spider silk", "This can be used for crafting"));
+        Items.Add(new Item(ITEM_ID_HEALING_POTION, "Healing potion", "This can be used to heal yourself"));
     }
 
     public static Location? LocationByID(int id)
@@ -201,6 +219,19 @@ public static class World
             if (quest.ID == id)
             {
                 return quest;
+            }
+        }
+
+        return null;
+    }
+
+    public static Item? ItemByID(int id)
+    {
+        foreach (Item item in Items)
+        {
+            if (item.ID == id)
+            {
+                return item;
             }
         }
 

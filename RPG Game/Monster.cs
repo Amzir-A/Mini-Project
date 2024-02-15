@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+
 public class Monster
 {
 	public int ID { get; set; }
@@ -5,6 +7,8 @@ public class Monster
 	public int CurrentHitPoints { get; set; }
 	public int MaximumDamage { get; set; }
 	public int MaximumHitPoints { get; set; }
+
+	public Random rand = new();
 
 	public Monster(int id, string name, int maximumDamage, int maximumHitPoints, int currentHitPoints)
 	{
@@ -14,32 +18,12 @@ public class Monster
 		MaximumDamage = maximumDamage;
 		CurrentHitPoints = currentHitPoints;
 	}
-	public void TakeDamage(int damage)
-	{
-		CurrentHitPoints -= damage;
-		if (CurrentHitPoints <= 0)
-		{
-			Console.WriteLine($"{Name} has been defeated!");
-		}
-		else
-		{
-			Console.WriteLine($"{Name} took {damage} damage and has {CurrentHitPoints} health remaining!");
-		}
-	}
 
-	public void Attack(Player target)
+	public void Attack(Player player)
 	{
-		Random random = new Random();
-		int damageDealt = random.Next(1, MaximumDamage + 1); // Random damage within the monster's maximum damage
-		Console.WriteLine($"{Name} attacks {target.Name} for {damageDealt} damage!");
-		target.CurrentHitPoints -= damageDealt;
-		if (target.CurrentHitPoints <= 0)
-		{
-			Console.WriteLine($"{target.Name} has been defeated!");
-		}
-		else
-		{
-			Console.WriteLine($"{target.Name} has {target.CurrentHitPoints} health remaining!");
-		}
+		int damage = rand.Next(0, MaximumDamage);
+		player.CurrentHitPoints -= damage;
+		Console.WriteLine($"The {Name} did {damage} points of damage to you");
+		Console.WriteLine($"You have {player.CurrentHitPoints} hit points remaining");
 	}
 }
