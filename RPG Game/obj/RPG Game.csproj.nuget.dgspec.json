@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Amzir\\Documents\\GitHub\\Mini-Project\\RPG Game\\RPG Game.csproj": {}
+    "C:\\Users\\no1al\\OneDrive\\Documenten\\GitHub\\Mini-Project\\RPG Game\\RPG Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Amzir\\Documents\\GitHub\\Mini-Project\\RPG Game\\RPG Game.csproj": {
+    "C:\\Users\\no1al\\OneDrive\\Documenten\\GitHub\\Mini-Project\\RPG Game\\RPG Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Amzir\\Documents\\GitHub\\Mini-Project\\RPG Game\\RPG Game.csproj",
+        "projectUniqueName": "C:\\Users\\no1al\\OneDrive\\Documenten\\GitHub\\Mini-Project\\RPG Game\\RPG Game.csproj",
         "projectName": "RPG Game",
-        "projectPath": "C:\\Users\\Amzir\\Documents\\GitHub\\Mini-Project\\RPG Game\\RPG Game.csproj",
-        "packagesPath": "C:\\Users\\Amzir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Amzir\\Documents\\GitHub\\Mini-Project\\RPG Game\\obj\\",
+        "projectPath": "C:\\Users\\no1al\\OneDrive\\Documenten\\GitHub\\Mini-Project\\RPG Game\\RPG Game.csproj",
+        "packagesPath": "C:\\Users\\no1al\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\no1al\\OneDrive\\Documenten\\GitHub\\Mini-Project\\RPG Game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Amzir\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\no1al\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
