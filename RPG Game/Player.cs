@@ -19,15 +19,4 @@ public class Player
 		CurrentHitPoints = currentHitPoints;
 		MaximumHitPoints = maximumHitPoints;
 	}
-	public void Attack(Monster target)
-	{
-		int damageDealt = CurrentWeapon.MaximumDamage;
-		Console.WriteLine($"{Name} attacks {target.Name} with {CurrentWeapon.Name} for {damageDealt} damage!");
-		target.TakeDamage(damageDealt);
-	}
-
-	public void DrinkPotion()
-	{
-		// Method implementation
-	}
 }
