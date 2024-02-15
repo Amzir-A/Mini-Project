@@ -6,6 +6,9 @@ public class SuperAdventure
 
 	public bool PlayerTurn = true;
 	public bool PlayerIsWinner = false;
+
+	public Random rand = new();
+
 	public SuperAdventure(Monster currentMonster, Player currentPlayer)
 	{
 		CurrentMonster = currentMonster;
@@ -84,6 +87,12 @@ public class SuperAdventure
 			CurrentPlayer.CurrentHitPoints = CurrentPlayer.MaximumHitPoints;
 
 			finished = true;
+			if (CurrentPlayer.Inventory.Count > 0)
+			{
+				 Item? LostItem = CurrentPlayer.Inventory[rand.Next(0, CurrentPlayer.Inventory.Count)].Details;
+				CurrentPlayer.RemoveItem(LostItem, 1);
+				Console.WriteLine($"You lost a {LostItem?.Name}\n");
+			}
 		}
 		else if (CurrentMonster.CurrentHitPoints <= 0)
 		{
@@ -92,6 +101,20 @@ public class SuperAdventure
 
 			CurrentMonster.CurrentHitPoints = CurrentMonster.MaximumHitPoints;
 			PlayerIsWinner = true;
+
+			CurrentPlayer.Gold += rand.Next(CurrentMonster.MaximumHitPoints / 2, CurrentMonster.MaximumHitPoints);
+			Console.WriteLine($"You found {CurrentMonster.MaximumHitPoints / 2} gold\n");
+
+			if (rand.Next(1, 100) < 70)
+			{
+				Item FoundItem = CurrentMonster.DropItem[rand.Next(0, CurrentMonster.DropItem.Count)];
+				CurrentPlayer.AddItem(FoundItem, 1);
+				Console.WriteLine($"You found a {FoundItem.Name}\n");
+			}
+
+			int xp = rand.Next(500, 1000);
+			CurrentPlayer.IncreaseExp(xp);
+			Console.WriteLine($"You gained {xp} experience\n");
 		}
 	}
 }

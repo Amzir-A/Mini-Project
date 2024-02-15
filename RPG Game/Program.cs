@@ -44,7 +44,7 @@
                     Console.WriteLine($"Quests: {player.Quests.Count}");
                     foreach (Quest quest in player.Quests)
                     {
-                        Console.WriteLine($"    {quest.Name}");
+                        Console.WriteLine($"    {quest.Name}" + (quest.IsCompleted ? " - Completed" : ""));
                         Console.WriteLine($"       - {quest.Description}");
                     }
                     break;
@@ -86,7 +86,6 @@
                     {
                         Location? toGoLocation = player.CurrentLocation?.GetLocationAt(Move_choice.ToString());
 
-                        Console.WriteLine(World.QuestByID(World.QUEST_ID_CLEAR_FARMERS_FIELD)?.IsCompleted == false);
                         if (toGoLocation?.ID == World.LOCATION_ID_GUARD_POST &&
                             (World.QuestByID(World.QUEST_ID_CLEAR_ALCHEMIST_GARDEN)?.IsCompleted == false ||
                             World.QuestByID(World.QUEST_ID_CLEAR_FARMERS_FIELD)?.IsCompleted == false))
@@ -127,7 +126,7 @@
                                     Console.WriteLine("You obtained a healing potion.");
                                     Console.WriteLine("You obtained a healing potion.");
 
-                                    player.AddItem(World.ItemByID(World.WEAPON_ID_CLUB), 1);
+                                    player.Weapons.Add(World.WeaponByID(World.WEAPON_ID_CLUB) ?? new Weapon(World.WEAPON_ID_CLUB, "Club", 10));
                                     player.AddItem(World.ItemByID(World.ITEM_ID_HEALING_POTION), 1);
 
                                     AlchemistQuest.RewardCollected = true;
@@ -145,7 +144,19 @@
                                 {
                                     Console.WriteLine("\n\nThank you for killing the Spiders, the last monsters in the village.\n You have won the game!.");
                                     ForestQuest.RewardCollected = true;
-                                    Quit = true;
+
+                                    Console.WriteLine("Do you want to quit? (Y/N)");
+                                    char quit_choice;
+                                    bool quit_valid;
+                                    do
+                                    {
+                                        quit_valid = char.TryParse(Console.ReadLine(), out quit_choice);
+                                    } while (quit_valid == false || char.ToLower(quit_choice) != 'y' && char.ToLower(quit_choice) != 'n');
+
+                                    if (char.ToLower(quit_choice) == 'y')
+                                    {
+                                        Quit = true;
+                                    }
                                 }
                                 else
                                 {
@@ -161,9 +172,11 @@
                     Monster? monster = player.CurrentLocation?.MonsterLivingHere;
                     if (monster != null)
                     {
-                        if (player.CurrentLocation?.AmountOfMonsters > 1)
+                        if (player.CurrentLocation?.AmountOfMonsters > 0)
                         {
                             SuperAdventure superAdventure = new SuperAdventure(monster, player);
+                            Console.WriteLine("\nYou are fighting a \n" + monster.Name);
+
                             while (superAdventure.finished == false)
                             {
                                 superAdventure.Fight();
@@ -171,7 +184,7 @@
                             if (superAdventure.PlayerIsWinner)
                             {
                                 player.CurrentLocation.AmountOfMonsters -= 1;
-                                if (player.CurrentLocation.AmountOfMonsters == 1)
+                                if (player.CurrentLocation.AmountOfMonsters == 0)
                                 {
                                     player.CurrentLocation.MonsterLivingHere = null;
                                     Console.WriteLine("Quest Completed, return to receive your reward.");

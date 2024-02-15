@@ -8,15 +8,18 @@ public class Monster
 	public int MaximumDamage { get; set; }
 	public int MaximumHitPoints { get; set; }
 
+	public List<Item> DropItem { get; set; }
+
 	public Random rand = new();
 
-	public Monster(int id, string name, int maximumDamage, int maximumHitPoints, int currentHitPoints)
+	public Monster(int id, string name, int maximumDamage, int maximumHitPoints, int currentHitPoints, List<Item> dropItem)
 	{
 		ID = id;
 		Name = name;
 		MaximumHitPoints = maximumHitPoints;
 		MaximumDamage = maximumDamage;
 		CurrentHitPoints = currentHitPoints;
+		DropItem = dropItem;
 	}
 
 	public void Attack(Player player)

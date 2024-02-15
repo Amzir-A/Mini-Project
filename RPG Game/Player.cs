@@ -7,9 +7,14 @@ public class Player
 	public Weapon? CurrentWeapon { get; set; }
 	public int MaximumHitPoints { get; set; }
 	public int CurrentHitPoints { get; set; }
+	public int AdditionalDamage { get; set; } = 0;
 
 	public List<Quest> Quests = [];
 	public int Gold = 0;
+
+	public int Exp = 0;
+	public int Level = 1;
+	public int ThresholdExp = 700;
 
 	public Random rand = new();
 
@@ -78,15 +83,29 @@ public class Player
 
 	public void Attack(Monster monster)
 	{
-		int damage = rand.Next(0, CurrentWeapon?.MaximumDamage ?? 0);
+		int damage = rand.Next(0 + AdditionalDamage, CurrentWeapon?.MaximumDamage + AdditionalDamage ?? 0);
 		monster.CurrentHitPoints -= damage;
 		Console.WriteLine($"You did {damage} points of damage to {monster.Name}");
 		Console.WriteLine($"{monster.Name} has {monster.CurrentHitPoints} hit points remaining");
 	}
 
-
-	public void DrinkPotion()
+	public void IncreaseExp(int exp)
 	{
-		// Method implementation
+		Exp += exp;
+		if (Exp >= ThresholdExp)
+		{
+			Level++;
+			Exp -= ThresholdExp;
+			ThresholdExp += 150;
+			MaximumHitPoints += 1;
+			CurrentHitPoints = MaximumHitPoints;
+			AdditionalDamage += 1;
+
+			Console.WriteLine("You have leveled up!");
+			Console.WriteLine($"You are now level {Level}");
+			Console.WriteLine($"You have {ThresholdExp - Exp} experience points until next level");
+			Console.WriteLine($"You have {MaximumHitPoints} hit points");
+			Console.WriteLine($"You have {AdditionalDamage} points additional damage");
+		}
 	}
 }

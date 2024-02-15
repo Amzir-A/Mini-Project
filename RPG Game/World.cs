@@ -41,6 +41,7 @@ public static class World
         PopulateMonsters();
         PopulateQuests();
         PopulateLocations();
+        PopulateItems();
     }
 
 
@@ -52,13 +53,9 @@ public static class World
 
     public static void PopulateMonsters()
     {
-        Monster rat = new Monster(MONSTER_ID_RAT, "rat", 1, 3, 3);
-
-
-        Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 10, 7, 7);
-
-
-        Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 3, 10, 10);
+        Monster rat = new Monster(MONSTER_ID_RAT, "rat", 1, 3, 3, [ItemByID(ITEM_ID_RAT_TAIL) ?? new Item(ITEM_ID_RAT_TAIL, "Rat tail", "This can be used for crafting"), ItemByID(ITEM_ID_HEALING_POTION) ?? new Item(ITEM_ID_HEALING_POTION, "Healing potion", "This can be used to heal yourself")] );
+        Monster snake = new Monster(MONSTER_ID_SNAKE, "snake", 10, 7, 7, [ItemByID(ITEM_ID_PIECE_OF_SNAKE_SKIN) ?? new Item(ITEM_ID_PIECE_OF_SNAKE_SKIN, "Piece of snake skin", "This can be used for crafting"), ItemByID(ITEM_ID_HEALING_POTION) ?? new Item(ITEM_ID_HEALING_POTION, "Healing potion", "This can be used to heal yourself")]);
+        Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 3, 10, 10, [ItemByID(ITEM_ID_SPIDER_FANG) ?? new Item(ITEM_ID_SPIDER_FANG, "Spider fang", "This can be used for crafting"), ItemByID(ITEM_ID_SPIDER_SILK) ?? new Item(ITEM_ID_SPIDER_SILK, "Spider silk", "This can be used for crafting"), ItemByID(ITEM_ID_HEALING_POTION) ?? new Item(ITEM_ID_HEALING_POTION, "Healing potion", "This can be used to heal yourself")]);
 
 
         Monsters.Add(rat);
