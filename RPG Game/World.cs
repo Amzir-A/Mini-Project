@@ -34,6 +34,7 @@ public static class World
     public const int ITEM_ID_SPIDER_FANG = 3;
     public const int ITEM_ID_SPIDER_SILK = 4;
     public const int ITEM_ID_HEALING_POTION = 5;
+    public const int ITEM_ID_ADVENTURER_PASS = 6;
 
     static World()
     {
@@ -166,6 +167,8 @@ public static class World
         Items.Add(new Item(ITEM_ID_SPIDER_FANG, "Spider fang", "This can be used for crafting"));
         Items.Add(new Item(ITEM_ID_SPIDER_SILK, "Spider silk", "This can be used for crafting"));
         Items.Add(new Item(ITEM_ID_HEALING_POTION, "Healing potion", "This can be used to heal yourself"));
+        // Add adventurers pass
+        Items.Add(new Item(ITEM_ID_ADVENTURER_PASS, "Adventurer's pass", "This pass allows you to travel to different locations"));
     }
 
     public static Location? LocationByID(int id)

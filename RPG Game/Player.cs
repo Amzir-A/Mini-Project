@@ -32,6 +32,7 @@ public class Player
 		Inventory = [];
 
 		Weapons.Add(currentWeapon ?? new Weapon(World.WEAPON_ID_RUSTY_SWORD, "Rusty sword", 5));
+		Inventory.Add(new StackedItem(World.ItemByID(World.ITEM_ID_ADVENTURER_PASS), 1));
 	}
 
 	public void AddItem(Item? item, int quantity)

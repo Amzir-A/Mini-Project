@@ -87,11 +87,15 @@ public class SuperAdventure
 			CurrentPlayer.CurrentHitPoints = CurrentPlayer.MaximumHitPoints;
 
 			finished = true;
-			if (CurrentPlayer.Inventory.Count > 0)
+			if (CurrentPlayer.Inventory.Count > 1)
 			{
-				 Item? LostItem = CurrentPlayer.Inventory[rand.Next(0, CurrentPlayer.Inventory.Count)].Details;
+				CurrentPlayer.RemoveItem(World.ItemByID(World.ITEM_ID_ADVENTURER_PASS), 1);
+
+				Item? LostItem = CurrentPlayer.Inventory[rand.Next(0, CurrentPlayer.Inventory.Count)].Details;
 				CurrentPlayer.RemoveItem(LostItem, 1);
 				Console.WriteLine($"You lost a {LostItem?.Name}\n");
+
+				CurrentPlayer.AddItem(World.ItemByID(World.ITEM_ID_ADVENTURER_PASS), 1);
 			}
 		}
 		else if (CurrentMonster.CurrentHitPoints <= 0)
