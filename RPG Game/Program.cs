@@ -7,7 +7,7 @@
         Player player = new Player("Player", World.LocationByID(World.LOCATION_ID_HOME), World.WeaponByID(World.WEAPON_ID_RUSTY_SWORD), 10, 10);
 
         Console.WriteLine("The game!\n");
-        Console.WriteLine("The people in your town are being terrorized by giant spiders.");
+        Console.WriteLine("The people in your town are being terrorized by monsters.");
         Console.WriteLine("You decide to do what you can to help.\n");
         Console.WriteLine("Objective: complete all quests\n");
 
